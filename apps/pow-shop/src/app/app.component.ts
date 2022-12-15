@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'pow-shop-frontend-root',
+  selector: 'bluebits-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'pow-shop';
+  title = 'ngshop';
 }
