@@ -8,6 +8,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { UiModule } from '@bluebits/ui';
+import { BannerComponent } from 'libs/ui/src/lib/banner/banner.component';
+
 
 const routes: Routes = [
     { path: '', component: HomePageComponent },
