@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CategoriesService, Category } from '@bluebits/products';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { Toolbar } from 'primeng/toolbar';
+
 @Component({
   selector: 'admin-categories-list',
   templateUrl: './categories-list.component.html',
