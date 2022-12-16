@@ -7,8 +7,6 @@ import { ProductListComponent } from './pages/product-list/product-list.componen
 import { RouterModule, Routes } from '@angular/router';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
-import { UiModule } from '@bluebits/ui';
-import { BannerComponent } from 'libs/ui/src/lib/banner/banner.component';
 
 
 const routes: Routes = [
@@ -18,7 +16,7 @@ const routes: Routes = [
 
 @NgModule({
     declarations: [AppComponent, HomePageComponent, ProductListComponent, HeaderComponent, FooterComponent],
-    imports: [BrowserModule, RouterModule.forRoot(routes), UiModule],
+    imports: [BrowserModule, RouterModule.forRoot(routes)],
     providers: [],
     bootstrap: [AppComponent]
 })
