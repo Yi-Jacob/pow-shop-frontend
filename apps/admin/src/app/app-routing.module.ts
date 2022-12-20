@@ -17,7 +17,6 @@ const routes: Routes = [
     path: '',
     component: ShellComponent,
     canActivate: [AuthGuard],
-    canDeactivate: [AuthGuard],
     children: [
       {
         path: '',
