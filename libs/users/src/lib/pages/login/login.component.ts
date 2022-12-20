@@ -41,10 +41,9 @@ export class LoginComponent implements OnInit {
 
     this.auth.login(this.loginForm.email.value, this.loginForm.password.value).subscribe(
       (user) => {
-        this.router.navigate(['/']);
         this.authError = false;
         this.localstorageService.setToken(user.token);
-
+        this.router.navigate(['/']);
       },
       (error: HttpErrorResponse) => {
         this.authError = true;
