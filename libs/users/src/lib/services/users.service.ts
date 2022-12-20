@@ -14,6 +14,7 @@ export class UsersService {
 
   constructor(private http: HttpClient) {
     countriesLib.registerLocale(require('i18n-iso-countries/langs/en.json'));
+    console.log('US (Alpha-2) => ' + countriesLib.getName('US', 'en'));
   }
 
   getUsers(): Observable<User[]> {
