@@ -2,6 +2,7 @@
   <p-card header="Dashboard" subheader="Latest Updates">
     <div class="p-grid">
       <div class="p-col-3">
+        <a routerLink="/orders">
         <p-card styleClass="d-orders">
           <div class="d-item">
             <div>
@@ -11,8 +12,10 @@
             <span class="number">{{ statistics[0] }}</span>
           </div>
         </p-card>
+        </a>
       </div>
       <div class="p-col-3">
+        <a routerLink="/products">
         <p-card styleClass="d-products">
           <div class="d-item">
             <div>
@@ -22,8 +25,10 @@
             <span class="number">{{ statistics[1] }}</span>
           </div>
         </p-card>
+      </a>
       </div>
       <div class="p-col-3">
+        <a routerLink="/users">
         <p-card styleClass="d-users">
           <div class="d-item">
             <div>
@@ -33,6 +38,7 @@
             <span class="number">{{ statistics[2] }}</span>
           </div>
         </p-card>
+        </a>
       </div>
       <div class="p-col-3">
         <p-card styleClass="d-totalsales">
