@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductsService } from '@bluebits/products';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'admin-products-list',
@@ -12,7 +10,6 @@ import { takeUntil } from 'rxjs/operators';
 })
 export class ProductsListComponent implements OnInit {
   products = [];
-  endsubs$: Subject<any> = new Subject();
 
   constructor(
     private productsService: ProductsService,
@@ -25,18 +22,10 @@ export class ProductsListComponent implements OnInit {
     this._getProducts();
   }
 
-  ngOnDestroy() {
-    this.endsubs$.next();
-    this.endsubs$.complete();
-  }
-
   private _getProducts() {
-    this.productsService
-      .getProducts()
-      .pipe(takeUntil(this.endsubs$))
-      .subscribe((products) => {
-        this.products = products;
-      });
+    this.productsService.getProducts().subscribe((products) => {
+      this.products = products;
+    });
   }
 
   updateProduct(productid: string) {
@@ -49,26 +38,23 @@ export class ProductsListComponent implements OnInit {
       header: 'Delete Product',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.productsService
-          .deleteProduct(productId)
-          .pipe(takeUntil(this.endsubs$))
-          .subscribe(
-            () => {
-              this._getProducts();
-              this.messageService.add({
-                severity: 'success',
-                summary: 'Success',
-                detail: 'Product is deleted!'
-              });
-            },
-            () => {
-              this.messageService.add({
-                severity: 'error',
-                summary: 'Error',
-                detail: 'Product is not deleted!'
-              });
-            }
-          );
+        this.productsService.deleteProduct(productId).subscribe(
+          () => {
+            this._getProducts();
+            this.messageService.add({
+              severity: 'success',
+              summary: 'Success',
+              detail: 'Product is deleted!'
+            });
+          },
+          () => {
+            this.messageService.add({
+              severity: 'error',
+              summary: 'Error',
+              detail: 'Product is not deleted!'
+            });
+          }
+        );
       }
     });
   }

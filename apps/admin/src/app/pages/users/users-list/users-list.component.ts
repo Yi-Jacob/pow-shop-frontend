@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { User, UsersService } from '@bluebits/users';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'admin-users-list',
@@ -12,7 +10,6 @@ import { takeUntil } from 'rxjs/operators';
 })
 export class UsersListComponent implements OnInit {
   users: User[] = [];
-  endsubs$: Subject<any> = new Subject();
 
   constructor(
     private usersService: UsersService,
@@ -25,37 +22,29 @@ export class UsersListComponent implements OnInit {
     this._getUsers();
   }
 
-  ngOnDestroy() {
-    this.endsubs$.next();
-    this.endsubs$.complete();
-  }
-
   deleteUser(userId: string) {
     this.confirmationService.confirm({
       message: 'Do you want to Delete this User?',
       header: 'Delete User',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.usersService
-          .deleteUser(userId)
-          .pipe(takeUntil(this.endsubs$))
-          .subscribe(
-            () => {
-              this._getUsers();
-              this.messageService.add({
-                severity: 'success',
-                summary: 'Success',
-                detail: 'User is deleted!'
-              });
-            },
-            () => {
-              this.messageService.add({
-                severity: 'error',
-                summary: 'Error',
-                detail: 'User is not deleted!'
-              });
-            }
-          );
+        this.usersService.deleteUser(userId).subscribe(
+          () => {
+            this._getUsers();
+            this.messageService.add({
+              severity: 'success',
+              summary: 'Success',
+              detail: 'User is deleted!'
+            });
+          },
+          () => {
+            this.messageService.add({
+              severity: 'error',
+              summary: 'Error',
+              detail: 'User is not deleted!'
+            });
+          }
+        );
       }
     });
   }
@@ -69,11 +58,8 @@ export class UsersListComponent implements OnInit {
   }
 
   private _getUsers() {
-    this.usersService
-      .getUsers()
-      .pipe(takeUntil(this.endsubs$))
-      .subscribe((users) => {
-        this.users = users;
-      });
+    this.usersService.getUsers().subscribe((users) => {
+      this.users = users;
+    });
   }
 }
