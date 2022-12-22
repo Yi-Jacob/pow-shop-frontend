@@ -16,8 +16,19 @@
             "polyfills": "apps/ngshop/src/polyfills.ts",
             "tsConfig": "apps/ngshop/tsconfig.app.json",
             "aot": true,
-            "assets": ["apps/ngshop/src/favicon.ico", "apps/ngshop/src/assets"],
-            "styles": ["apps/ngshop/src/styles.scss"],
+            "assets": [
+              "apps/ngshop/src/favicon.ico",
+              "apps/ngshop/src/assets"
+            ],
+            "styles": [
+              "apps/ngshop/src/styles.scss",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/themes/saga-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/quill/dist/quill.core.css",
+              "node_modules/quill/dist/quill.snow.css",
+              "node_modules/primeflex/primeflex.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -78,7 +89,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/ngshop"],
+          "outputs": [
+            "coverage/apps/ngshop"
+          ],
           "options": {
             "jestConfig": "apps/ngshop/jest.config.js",
             "passWithNoTests": true
@@ -107,7 +120,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/ngshop-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/ngshop-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
@@ -127,13 +142,19 @@
             "polyfills": "apps/admin/src/polyfills.ts",
             "tsConfig": "apps/admin/tsconfig.app.json",
             "aot": true,
-            "assets": ["apps/admin/src/favicon.ico", "apps/admin/src/assets"],
-            "styles": ["apps/admin/src/styles.scss",
-            "node_modules/primeicons/primeicons.css",
+            "assets": [
+              "apps/admin/src/favicon.ico",
+              "apps/admin/src/assets"
+            ],
+            "styles": [
+              "apps/admin/src/styles.scss",
+              "node_modules/primeicons/primeicons.css",
               "node_modules/primeng/resources/themes/saga-blue/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
-            "node_modules/quill/dist/quill.core.css",
-              "node_modules/quill/dist/quill.snow.css"],
+              "node_modules/quill/dist/quill.core.css",
+              "node_modules/quill/dist/quill.snow.css",
+              "node_modules/primeflex/primeflex.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -194,7 +215,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/admin"],
+          "outputs": [
+            "coverage/apps/admin"
+          ],
           "options": {
             "jestConfig": "apps/admin/jest.config.js",
             "passWithNoTests": true
@@ -223,7 +246,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/admin-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/admin-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
@@ -236,12 +261,16 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/ui/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/ui/**/*.ts"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui"],
+          "outputs": [
+            "coverage/libs/ui"
+          ],
           "options": {
             "jestConfig": "libs/ui/jest.config.js",
             "passWithNoTests": true
@@ -266,7 +295,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/orders"],
+          "outputs": [
+            "coverage/libs/orders"
+          ],
           "options": {
             "jestConfig": "libs/orders/jest.config.js",
             "passWithNoTests": true
@@ -291,7 +322,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/products"],
+          "outputs": [
+            "coverage/libs/products"
+          ],
           "options": {
             "jestConfig": "libs/products/jest.config.js",
             "passWithNoTests": true
@@ -316,7 +349,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/users"],
+          "outputs": [
+            "coverage/libs/users"
+          ],
           "options": {
             "jestConfig": "libs/users/jest.config.js",
             "passWithNoTests": true
@@ -326,7 +361,8 @@
     }
   },
   "cli": {
-    "defaultCollection": "@nrwl/angular"
+    "defaultCollection": "@nrwl/angular",
+    "analytics": false
   },
   "schematics": {
     "@nrwl/angular": {
