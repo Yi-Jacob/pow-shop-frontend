@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -12,15 +12,25 @@ import { UiModule } from '@bluebits/ui';
 import { AccordionModule } from 'primeng/accordion';
 import { NavComponent } from './shared/nav/nav.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ContactComponent } from './pages/contact/contact.component';
+import { OrdersModule } from '@bluebits/orders';
+import { ToastModule } from 'primeng/toast';
+import { MessagesComponent } from './shared/messages/messages.component';
+import { MessageService } from 'primeng/api';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
-{ path: 'contact', component: ContactComponent },
+  { path: 'contact', component: ContactPageComponent}
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomePageComponent, HeaderComponent, FooterComponent, NavComponent, ContactComponent],
+  declarations: [
+    AppComponent,
+    HomePageComponent,
+    HeaderComponent,
+    FooterComponent,
+    NavComponent,
+    MessagesComponent
+  ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
@@ -28,9 +38,11 @@ const routes: Routes = [
     ProductsModule,
     AccordionModule,
     BrowserAnimationsModule,
-    UiModule
+    UiModule,
+    OrdersModule,
+    ToastModule
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
