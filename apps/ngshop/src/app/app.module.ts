@@ -4,7 +4,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { ProductListComponent } from './pages/product-list/product-list.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
@@ -13,22 +12,15 @@ import { UiModule } from '@bluebits/ui';
 import { AccordionModule } from 'primeng/accordion';
 import { NavComponent } from './shared/nav/nav.component';
 import { HttpClientModule } from '@angular/common/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ContactComponent } from './pages/contact/contact.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
-  { path: 'products', component: ProductListComponent }
+{ path: 'contact', component: ContactComponent },
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomePageComponent,
-    ProductListComponent,
-    HeaderComponent,
-    FooterComponent,
-    NavComponent
-  ],
+  declarations: [AppComponent, HomePageComponent, HeaderComponent, FooterComponent, NavComponent, ContactComponent],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
@@ -36,8 +28,7 @@ const routes: Routes = [
     ProductsModule,
     AccordionModule,
     BrowserAnimationsModule,
-    UiModule,
-    NgbModule
+    UiModule
   ],
   providers: [],
   bootstrap: [AppComponent]
