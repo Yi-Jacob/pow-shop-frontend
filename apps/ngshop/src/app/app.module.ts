@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -17,7 +17,10 @@ import { ToastModule } from 'primeng/toast';
 import { MessagesComponent } from './shared/messages/messages.component';
 import { MessageService } from 'primeng/api';
 
-const routes: Routes = [{ path: '', component: HomePageComponent }];
+const routes: Routes = [
+  { path: '', component: HomePageComponent },
+  { path: 'contact', component: ContactPageComponent}
+];
 
 @NgModule({
   declarations: [
