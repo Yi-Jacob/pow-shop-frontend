@@ -45,7 +45,6 @@ export class ProductsListComponent implements OnInit {
     const selectedCategories = this.categories
       .filter((category) => category.checked)
       .map((category) => category.id);
-
     this._getProducts(selectedCategories);
   }
 }
