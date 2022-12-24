@@ -40,7 +40,7 @@ export class CheckoutPageComponent implements OnInit {
       city: ['', Validators.required],
       country: ['', Validators.required],
       zip: ['', Validators.required],
-      apartment: ['', Validators.required],
+      apartment: [''],
       street: ['', Validators.required]
     });
   }
