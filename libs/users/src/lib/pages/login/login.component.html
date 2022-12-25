@@ -1,9 +1,9 @@
 <div class="login-register">
   <div class="login-register-panel">
     <div class="p-grid">
-      <!-- <div class="p-col-6">
+      <div class="p-col-6">
         <img src="assets/images/login-photo.png" />
-      </div> -->
+      </div>
       <div class="p-col-6 p-p-5">
         <h3>Welcome!</h3>
         <h2>Login Page</h2>
@@ -34,7 +34,7 @@
               </small>
             </div>
             <div class="p-col-12">
-              <p-button label="Submit" styleClass="full-btn" (click)="onSubmit()"></p-button>
+              <p-button label="Submit" styleClass="full-btn" (onClick)="onSubmit()"></p-button>
             </div>
             <div class="p-col-12" *ngIf="isSubmitted && authError">
               <small class="p-error">{{ authMessage }}</small>
